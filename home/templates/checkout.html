@@ -1,0 +1,119 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+	<!-- page -->
+	<div class="services-breadcrumb">
+		<div class="agile_inner_breadcrumb">
+			<div class="container">
+				<ul class="w3_short">
+					<li>
+						<a href="/">Home</a>
+						<i>|</i>
+					</li>
+					<li>Checkout</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //page -->
+	<!-- checkout page -->
+	<div class="privacy">
+		<div class="container">
+			<!-- tittle heading -->
+			<h3 style="float:center; color:red">Checkout
+				<span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</h3>
+			<!-- //tittle heading -->
+
+<!--			<div class="checkout-right">-->
+<!--				<h4 style='align=centre;color:blue'>Ready for Adventurous Trip-->
+<!--				</h4>-->
+<!--				<div>-->
+					<table border=1>
+						<tr>
+							<th>S.No.</th>
+							<th>Place</th>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Destination</th>
+							<th>Price</th>
+<!--							<th>Action</th>-->
+						</tr>
+
+							{% for check in checkouts %}
+
+						<tr>
+							<td>{{check.id}}</td>
+							<td> <img src="../{{check.name}}"></td>
+							<td>{{check.fullname}}</td>
+							<td>{{check.quantity}}</td>
+							<td>{{check.placeName}}</td>
+							<td>{{check.price}}</td>
+							<td></td>
+						</tr>
+						{% endfor %}
+
+					</table>
+
+			<!--</div>&ndash;&gt;-->
+<!--			</div>-->
+			<div class="checkout-left">
+				<div class="address_form_agile">
+<!--					<h4>Add a new Details</h4>-->
+<!--					<form action="payment.html" method="POST">-->
+<!--						{% csrf_token %}-->
+<!--						<div class="creditly-wrapper wthree, w3_agileits_wrapper">-->
+<!--							<div class="information-wrapper">-->
+<!--								<div class="first-row">-->
+<!--									<div class="controls">-->
+<!--										<input type="text" name="name" placeholder="Full Name" required="">-->
+<!--									</div>-->
+<!--									<div class="w3_agileits_card_number_grids">-->
+<!--										<div class="w3_agileits_card_number_grid_left">-->
+<!--											<div class="controls">-->
+<!--												<input type="text" placeholder="Mobile Number" name="number" required="">-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="w3_agileits_card_number_grid_right">-->
+<!--											<div class="controls">-->
+<!--												<input type="text" placeholder="Landmark" name="landmark" required="">-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="clear"> </div>-->
+<!--									</div>-->
+<!--									<div class="controls">-->
+<!--										<input type="text" placeholder="Town/City" name="city" required="">-->
+<!--									</div>-->
+<!--									<div class="controls" name="location">-->
+<!--										<select class="option-w3ls">-->
+<!--											<option>Select Address type</option>-->
+<!--											<option>Office</option>-->
+<!--											<option>Home</option>-->
+<!--											<option>Commercial</option>-->
+
+<!--										</select>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<button>-->
+<!--									<a href="/payment">Delivery to this Address</a></button>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</form>-->
+					<div class="checkout-right-basket">
+						<a href="/payment">Make a Payment
+							<span class="fa fa-hand-o-right" aria-hidden="true"></span>
+						</a>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //checkout page -->
+	<!-- newsletter -->
+
+{% endblock %}

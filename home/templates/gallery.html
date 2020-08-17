@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--	&lt;!&ndash; banner &ndash;&gt;-->
+<!--	<div class="banner">-->
+<!--		<div class="agileinfo-dot">-->
+
+<!--	&lt;!&ndash; //banner &ndash;&gt;-->
+<!--	&lt;!&ndash; gallery &ndash;&gt;-->
+
+	<h1 align="center">Gallery</h1>
+	<div class="gallery">
+		<div class="container">
+			<div class="gallery-grids">
+				<div class="w3ls-gallery-grids">
+					{% for des in gallery %}
+<!--					<div class="col-md-3 gallery-grids-left-subr">-->
+<!--						<div class="gallery-grid">-->
+<!--							<a class="example-image-link" data-lightbox="example-set" data-title="{{description.title.url}}">-->
+<!--								<img src="../{{description.image.url}}" alt="" />-->
+<!--							</a>-->
+<!--						</div>-->
+<!--						<div>-->
+<!--						<a href="ViewDetail">Quick View</a>-->
+<!--						</div>-->
+<!--					</div>-->
+
+					<div class="col-md-4 product-men">
+							<div class="men-pro-item simpleCart_shelfItem">
+								<div class="men-thumb-item">
+									<img src="../{{des.image.url}}" height="390" width="500" alt="">
+									<div class="men-cart-pro">
+										<div class="inner-men-cart-pro">
+											<a href="{{des.get_place_url}}" class="link-product-add-cart">Details</a>
+										</div>
+									</div>
+									<span class="product-new-top">{{des.label}}</span>
+
+								</div>
+								<div class="item-info-product ">
+									<h4>
+										{{des.title}}
+									</h4>
+									{% if diccounted_price > 0 %}
+									<div class="info-product-price">
+										<span class="item_price">Rs.{{des.discounted_price}}</span>
+										<del>Rs.{{des.price}}</del>
+									</div>
+									{% else %}
+									<div class="info-product-price">
+										<span class="item_price">Rs.{{des.price}}</span>
+
+									</div>
+									{% endif %}
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+										<form action="{% url 'home:add_to_book' %}" method="POST">
+										{% csrf_token %}
+											<fieldset>
+												<input type="hidden" name="slug" value="{{des.slug}}" />
+												<input type="hidden" name="title" value="{{des.title}}" />
+												<input type="hidden" name="price" value="{{des.price}}" />
+												<input type="hidden" name="discounted_price" value="{{des.discounted_price}}" />
+												<input type="hidden" name="image" value="{{des.image.url}}" />
+												<input type="hidden" name="description" value="{{des.description}}" />
+
+												<input type="hidden" name="labels" value="{{des.labels}}" />
+												<input type="hidden" name="special_offer" value="{{des.special_offer}}" />
+												<input type="submit" name="submit" value="Book Ticket" class="button" />
+											</fieldset>
+										</form>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+
+				<script src="js/lightbox-plus-jquery.min.js"> </script>
+			</div>
+		</div>
+	</div>
+	<!-- //gallery -->
+	{% endblock %}

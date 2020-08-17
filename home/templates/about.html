@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!-- banner -->
+				<div class="container">
+					<h2 style="font-size:24;align:centre">About</h2>
+				</div>
+
+	<!-- //banner -->
+	<!-- content-about -->
+	<div class="content-about agileits">
+		<div class="container">
+			<div class="agile-about-top">
+				<div class="col-md-4 wel">
+					<h6>History of Perfect Travel</h6>
+					<h3>Aims</h3>
+					<p>Entertainment, Excitement, Enjoyment, positive feedbacks of our client's experience and being able to promote Visit Nepal 2021 throughout the World via our WebSite.</p>
+				</div>
+				<div class="col-md-8 us-grid w3layouts-agile">
+
+					{% for histo in historys %}
+					<div class="col-md-6 us-col w3l">
+						<div class="col-left">
+						<span>{{histo.id}}</span>
+						</div>
+						<div class="col-right">
+							<h6>{{histo.title}}</h6>
+							<p>{{histo.description}} </p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					{% endfor %}
+
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //content-about -->
+	<!-- choose -->
+	<div class="choose-dot">
+		<div class="jarallax w3-agileits-choose">
+			<div class="container">
+				<div class="w3-welcome-heading agileits-w3layouts-choose-heading">
+					<h3>Why choose us?</h3>
+				</div>
+				<div class="agile-choose-grids">
+					{% for choos in chooses%}
+					<div class="col-sm-4 agile-choose-grid">
+						<div class="choose-icon">
+<!--							<i class="fa fa-user" aria-hidden="true"></i>-->
+							<img src="../{{choos.image.url}}" height="120" width="120">
+
+						</div>
+						<div class="choose-info">
+							<h4>{{choos.title}}</h4>
+							<p>{{choos.description}}</p>
+						</div>
+					</div>
+					{% endfor %}
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!-- //choose -->
+	<!-- team -->
+	<div class="team">
+		<div class="container">
+				<div class="w3-welcome-heading w3l-heading">
+					<h3>Our Team</h3>
+				</div>
+				<div class="team-grids">
+					<!-- Bottom to top-->
+					{% for mem in teams %}
+					<div class="col-sm-4 team-grid">
+							<!-- normal -->
+							<div class="ih-item circle effect10 bottom_to_top">
+								<div class="img"><img src="../{{mem.image.url}}" height="220" width="170" alt="img"></div>
+								<div class="info">
+									<h3 style="color:blue">{{mem.name}}</h3>
+									<h3 style="color:red">{{mem.contact}}</h3>
+									<div class="w3ls-icons">
+										<ul>
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- end normal -->
+						</div>
+					{% endfor %}
+						<div class="clearfix"> </div>
+					<!-- end Bottom to top-->
+				</div>
+			</div>
+	</div>
+	<!-- //team -->
+	{% endblock %}

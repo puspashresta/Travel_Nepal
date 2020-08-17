@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>login-form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 550px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Sign-Up form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        {% if messages %}
+                        {% for msg in messages%}
+                        {{msg}}
+                        {% endfor %}
+                        {% endif %}
+                        <form id="login-form" class="form" action="signup" method="POST">
+                            {% csrf_token %}
+                            <h3 class="text-center text-info">Sign-Up Form</h3>
+                            <div class="form-group">
+                                <label class="text-info">Name:</label><br>
+                                <input type="text" name="name" class="form-control" autocomplete="True" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info">Username:</label><br>
+                                <input type="text" name="username" class="form-control" autocomplete="True" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info">Email id:</label><br>
+                                <input type="text" name="email" class="form-control" autocomplete="True" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info">password:</label><br>
+                                <input type="text" name="password" class="form-control" autocomplete="True" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="text-info">Confirm Password:</label><br>
+                                <input type="text" name="confirm_password" class="form-control" autocomplete="True" required>
+                            </div>
+                            <input type="submit" class="text-info" value="Submit">
+                            <a href="/accounts/login">Registered_User</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

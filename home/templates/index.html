@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+	<!-- welcome -->
+	<div class="welcome" id="welcome">
+		<div class="container">
+			<div class="w3-welcome-heading">
+				<h2>Welcome</h2>
+			</div>
+			<div class="w3l-welcome-info">
+				<div class="col-sm-6 welcome-grids">
+					<div class="welcome-img">
+						<img src="{% static 'images/2.jpg' %}" class="img-responsive zoom-img" alt="">
+					</div>
+				</div>
+				<div class="col-sm-6 welcome-grids">
+					<div class="welcome-img">
+						<img src="{% static 'images/3.jpg' %}" class="img-responsive zoom-img" alt="">
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="w3l-welcome-text">
+				<p>Visit Nepal 2020 is the recent major project focused by all the tourism industries, government and highly welcomed and appreciated by the Nepalese for enhancing economy of people and the nation ultimately, But pandemic CORONA destroyed it all . @ 2021 is the focused tourism year by the Nepalese.!!! So by the access of this travel site you may find a best place to uplift your quarantine season into a enjoyable tour at a beatiful greenery scenerio!!!</p>
+			</div>
+		</div>
+	</div>
+	<!-- //welcome -->
+	<!-- services -->
+	<div id="services" class="services">
+		<div class="container">  
+			<div class="w3-welcome-heading">
+				<h3>Our Services</h3>
+			</div>
+			<div class="services-w3ls-row">
+
+				{% for serve in services %}
+				<div class="col-md-3 col-sm-3 col-xs-6 services-grid agileits-w3layouts">
+<!--					<span class="glyphicon glyphicon-home effect-1" aria-hidden="true"></span>-->
+					<img src="{{serve.image}}" height="110" width="110">
+					<h5>{{serve.title}}</h5>
+					<p>{{serve.upper_part}}</p>
+					<p>{{serve.lower_part}}</p>
+				</div>
+
+				{% endfor %}
+				<div class="clearfix"> </div>
+			</div>  
+		</div>
+	</div>
+	<!-- //services -->
+	<!-- feedback -->
+	<div class="feedback_dot">
+		<div class="jarallax feedback">
+			<div class="container">
+				<div class="w3-welcome-heading">
+					<h3>Feedback</h3>
+				</div>
+				<div class="agileits-feedback-grids">
+					<div id="owl-demo" class="owl-carousel owl-theme">
+						{% for feed in feedbacks %}
+
+						<div class="item">
+							<div class="feedback-info">
+								<div class="feedback-top">
+									<p>{{feed.description}}</p>
+								</div>
+								<div class="feedback-grids">
+									<div class="feedback-img">
+										<img src="{{feed.image}}" alt="" />
+									</div>
+									<div class="feedback-img-info">
+										<h5>{{feed.name}}</h5>
+										<h6>{{feed.address}}</h6>
+
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>	
+						</div>
+
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //feedback -->
+	<!-- news-letter -->
+<!--	<div class="news-letter">-->
+<!--		<div class="container">-->
+<!--			<div class="w3-welcome-heading wthree-subscribe">-->
+<!--				<h3>Subscribe Here</h3>-->
+<!--			</div>-->
+<!--			<div class="agileinfo-subscribe">-->
+<!--				<form action="#" method="post">-->
+<!--					<input type="text" placeholder="Name" name="Name"  required="">-->
+<!--					<input type="email" placeholder="Email" name="Email"  required="">-->
+<!--					<input type="submit" value="Subscribe">-->
+<!--					<div class="clearfix"> </div>-->
+<!--				</form>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	&lt;!&ndash; //news-letter &ndash;&gt;-->
+	<!-- footer -->
+
+
+{% endblock %}
